@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Detail</title>
+    <link rel="stylesheet" href="shop.css">
+</head>
+
+<body>
+    <nav>
+        <a href="#">About</a>
+        <a href="#">Background</a>
+        <a href="#">Photo-to-Photo</a>
+        <a href="#">Photo-to-Video</a>
+        <a href="#">Story Text</a>
+        <a href="#">Shop</a>
+        <a href="#">Contact Us</a>
+    </nav>
+    <div class="breadcrumb">
+        <a href="shop.html">Home</a> / <a href="shop.html">All Products</a> / <span id="productName"></span>
+    </div>
+    <div class="product-detail-container">
+        <div class="product-image">
+            <img id="productImage" src="" alt="">
+        </div>
+        <div class="product-info">
+            <h1 id="productTitle"></h1>
+            <p class="price" id="productPrice"></p>
+            <div class="option">
+                <label for="contrast-level">Contrast Level *</label>
+                <select id="contrast-level" name="contrast-level">
+                    <option value="" disabled selected>Select</option>
+                    <option value="soft">Soft</option>
+                    <option value="bold">Bold</option>
+                </select>
+            </div>
+            <div class="option">
+                <label for="quantity">Quantity *</label>
+                <div class="quantity-selector">
+                    <button class="quantity-btn" onclick="updateQuantity(-1)">-</button>
+                    <input type="text" id="quantity" value="1" readonly>
+                    <button class="quantity-btn" onclick="updateQuantity(1)">+</button>
+                </div>
+            </div>
+            <button class="add-to-cart" onclick="addToCartFromDetail()">Add to Cart</button>
+            <div class="social-icons">
+                <a href="#"><img src="https://via.placeholder.com/20x20?text=F" alt="Facebook"></a>
+                <a href="#"><img src="https://via.placeholder.com/20x20?text=P" alt="Pinterest"></a>
+                <a href="#"><img src="https://via.placeholder.com/20x20?text=W" alt="WhatsApp"></a>
+            </div>
+        </div>
+    </div>
+    <a href="shop.html">Back to Shop</a>
+    <footer>© 2025 Shopping Platform. All rights reserved.</footer>
+
+    <script>
+        function parseURLParams() {
+            const params = new URLSearchParams(window.location.search);
+            const name = params.get('name') || '5 pages AI Travel Book';
+            const price = parseFloat(params.get('price')) || 25.00;
+            const image = params.get('image') || 'https://via.placeholder.com/300x300?text=5+Pages+AI+Travel+Book';
+
+            document.getElementById('productName').textContent = name;
+            document.getElementById('productTitle').textContent = name;
+            document.getElementById('productPrice').textContent = `HK$${price.toFixed(2)}`;
+            document.getElementById('productImage').src = image;
+            document.getElementById('productImage').alt = name;
+        }
+
+        function updateQuantity(change) {
+            let quantityInput = document.getElementById('quantity');
+            let quantity = parseInt(quantityInput.value);
+            quantity = Math.max(0, Math.min(50, quantity + change));
+            quantityInput.value = quantity;
+        }
+
+        function addToCartFromDetail() {
+            const name = document.getElementById('productTitle').textContent;
+            const price = parseFloat(document.getElementById('productPrice').textContent.replace('HK$', ''));
+            const image = document.getElementById('productImage').src;
+            const quantity = parseInt(document.getElementById('quantity').value);
+            const contrastLevel = document.getElementById('contrast-level').value;
+
+            if (!contrastLevel) {
+                alert('Please select a contrast level.');
+                return;
+            }
+
+            if (quantity === 0) {
+                alert('Please select a quantity greater than 0.');
+                return;
+            }
+
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const item = cart.find(i => i.name === name && i.contrastLevel === contrastLevel);
+            if (item) {
+                item.quantity += quantity;
+            } else {
+                cart.push({ name, price, image, contrastLevel, quantity });
+            }
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert(`${name} (Contrast Level: ${contrastLevel}) has been added to your cart!`);
+            window.location.href = 'cart.html';
+        }
+
+        window.onload = parseURLParams;
+    </script>
+</body>
+
+</html>

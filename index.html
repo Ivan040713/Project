@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+            background-color: #F9ECEC;
+            color: #2C3E50;
+        }
+
+        a {
+            margin: 10px;
+            text-decoration: none;
+            color: #E74C3C;
+            font-size: 18px;
+        }
+
+        a:hover {
+            color: #C0392B;
+        }
+
+        .slideshow {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            overflow: hidden;
+            margin: 0 auto;
+            background-color: #ECF0F1;
+        }
+
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            animation: slideShow 30s infinite;
+            /* Changed to 30s total duration */
+        }
+
+        .slide:nth-child(1) {
+            animation-delay: 0s;
+        }
+
+        .slide:nth-child(2) {
+            animation-delay: 5s;
+        }
+
+        .slide:nth-child(3) {
+            animation-delay: 10s;
+        }
+
+        .slide:nth-child(4) {
+            animation-delay: 15s;
+        }
+
+        .slide:nth-child(5) {
+            animation-delay: 20s;
+        }
+
+        .slide:nth-child(6) {
+            animation-delay: 25s;
+        }
+
+        @keyframes slideShow {
+
+            0%,
+            16.66% {
+                /* Changed to 16.66% (100% ÷ 6 slides) for 5s each */
+                opacity: 1;
+                z-index: 1;
+            }
+
+            16.67%,
+            /* Adjusted timing */
+            100% {
+                opacity: 0;
+                z-index: 0;
+            }
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        footer {
+            color: #2C3E50;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <a href="index.html">About</a>
+        <a href="Background.html">Background</a>
+        <a href="photo_to_photo.html">Photo-to-Photo</a>
+        <a href="photo_to_video.html">Photo-to-Video</a>
+        <a href="story_text.html">Story Text</a>
+        <a href="shop.html">Shop</a>
+        <a href="contact_us.html">Contact Us</a>
+    </div>
+    <div>
+        <p>
+        <h1>Welcome to the Home Page</h1>
+        </p>
+    </div>
+    <div class="slideshow">
+        <div class="slide">
+            <img src="image/TokyoTower.jpg">
+        </div>
+        <div class="slide">
+            <img src="image/Shinjuku.jpg">
+        </div>
+        <div class="slide">
+            <img src="image/Akihabara.jpg">
+        </div>
+        <div class="slide">
+            <img src="image/Shibuya.jpg">
+        </div>
+        <div class="slide">
+            <img src="image/Ginza.jpg">
+        </div>
+        <div class="slide">
+            <img src="image/DotonboriBridge.jpg">
+        </div>
+    </div>
+
+</body>
+<footer>
+    <p>
+        © 2025 GSTC2066 Wednesday Group 5. All rights reserved.
+    </p>
+</footer>
+
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo-to-Video</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #F9ECEC;
+            color: #2C3E50;
+        }
+
+        .task {
+            margin-bottom: 20px;
+        }
+
+        .task h2 {
+            font-size: 18px;
+            text-align: left;
+            font-weight: normal;
+            margin-bottom: 10px;
+        }
+
+        .content-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            /* 2 columns of equal width */
+            grid-template-rows: auto auto;
+            /* 2 rows */
+            gap: 20px;
+            /* Space between cells */
+            padding: 20px;
+            max-width: 100%;
+            /* Ensure the grid fits within the screen */
+            box-sizing: border-box;
+            /* Include padding in the width */
+        }
+
+        .content-item {
+            padding: 10px;
+            /* Padding inside each cell */
+            text-align: left;
+            /* Ensure content is left-aligned */
+            box-sizing: border-box;
+            /* Include padding in the width */
+        }
+
+        .photo {
+            max-width: 100%;
+            /* Make images responsive */
+            max-height: 300px;
+            /* Maximum height */
+            width: auto;
+            /* Maintain aspect ratio */
+            height: auto;
+            /* Maintain aspect ratio */
+            object-fit: cover;
+            /* Ensure the image scales properly */
+        }
+
+        .video {
+            max-width: 100%;
+            /* Make videos responsive */
+            max-height: 300px;
+            /* Maximum height */
+            width: auto;
+            /* Maintain aspect ratio */
+            height: auto;
+            /* Maintain aspect ratio */
+        }
+
+        .image-container {
+            display: flex;
+            /* Display multiple images side by side */
+            gap: 10px;
+            /* Space between images */
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #3498DB;
+            color: #FFFFFF;
+            border: none;
+        }
+
+        button:hover {
+            background-color: #2980B9;
+        }
+
+        a {
+            display: block;
+            margin-top: 20px;
+            color: #E74C3C;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #C0392B;
+        }
+
+        footer {
+            margin-top: 30px;
+            font-size: 14px;
+            color: #2C3E50;
+        }
+
+        /* Media query for smaller screens (e.g., half-screen or mobile) */
+        @media (max-width: 768px) {
+            .content-container {
+                grid-template-columns: 1fr;
+                /* Stack cells vertically */
+                grid-template-rows: auto auto auto auto;
+                /* 4 rows */
+            }
+
+            .photo,
+            .video {
+                max-height: 200px;
+                /* Reduce size on smaller screens */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Photo-to-Video using AdobeFirefly</h1>
+
+    <!-- Task 1 -->
+    <div class="task">
+        <h2>Task 1: In this picture, I am holding a cable car pass, making the background move like I am going uphill.
+            Make sure the objects in the picture are not distorted during the process.</h2>
+        <div class="content-container">
+            <!-- First Row: Original Picture and g.jpg -->
+            <div class="content-item">
+                <span>Original Picture</span>
+            </div>
+            <div class="content-item">
+                <img src="image/g.jpg" alt="Photo G" class="photo">
+            </div>
+            <!-- Second Row: Instruction text and 1.mp4 -->
+            <div class="content-item">
+                <span>After I write words and instructions in AdobeFirefly, it shows a five seconds video</span>
+            </div>
+            <div class="content-item">
+                <video class="video" controls>
+                    <source src="1.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </div>
+
+    <!-- Task 2 -->
+    <div class="task">
+        <h2>Task 2: The guy in the picture was thinking deeply and was touching his hair.</h2>
+        <div class="content-container">
+            <!-- First Row: Original Picture and h.jpg/i.jpg -->
+            <div class="content-item">
+                <span>Original Picture</span>
+            </div>
+            <div class="content-item">
+                <div class="image-container">
+                    <img src="image/h.jpg" alt="Photo H" class="photo">
+                    <img src="image/i.jpg" alt="Photo I" class="photo">
+                </div>
+            </div>
+            <!-- Second Row: Instruction text and 2.mp4 -->
+            <div class="content-item">
+                <span>After I write words and instructions in AdobeFirefly, it shows a five seconds video</span>
+            </div>
+            <div class="content-item">
+                <video class="video" controls>
+                    <source src="2.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </div>
+
+    <a href="photo_to_video.html"><button>Back To Photo-to-Video Page</button></a>
+    <footer>
+        © 2025 GSTC2066 Wednesday Group 5. All rights reserved.
+    </footer>
+</body>
+
+</html>

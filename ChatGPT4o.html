@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo-to-Photo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+            background-color: #F9ECEC;
+            color: #2C3E50;
+        }
+
+        .task {
+            margin-bottom: 40px;
+            /* Space between tasks */
+        }
+
+        .task h2 {
+            margin-bottom: 10px;
+            font-size: 18px;
+            text-align: left;
+            font-weight: normal;
+            /* Remove bold styling */
+        }
+
+        table {
+            margin: 0 auto;
+            border-collapse: collapse;
+            background-color: #FFFFFF;
+        }
+
+        td {
+            padding: 10px;
+            /* Add padding for better spacing around images */
+            text-align: center;
+            /* Center the images in the table cells */
+        }
+
+        .photo {
+            width: 300px;
+            /* Fixed width for all photos */
+            height: 300px;
+            /* Fixed height for all photos */
+            object-fit: cover;
+            /* Ensure images scale properly */
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #3498DB;
+            color: #FFFFFF;
+            border: none;
+        }
+
+        button:hover {
+            background-color: #2980B9;
+        }
+
+        a {
+            display: block;
+            margin-top: 20px;
+            color: #E74C3C;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #C0392B;
+        }
+
+        footer {
+            margin-top: 30px;
+            font-size: 14px;
+            color: #2C3E50;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Photo-to-Photo using ChatGPT4o</h1>
+
+    <!-- Task 1 -->
+    <div class="task">
+        <h2>Task 1: Help me to generate a Ghibli Studio-style image with this. Ensure clothing and other bits and
+            details remain as it.</h2>
+        <table>
+            <tr>
+                <td><img src="image/a.jpg" alt="Photo A" class="photo"></td>
+                <td><img src="image/b.jpg" alt="Photo B" class="photo"></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="task">
+        <h2>Task 2: Restyle image in studio ghibli style, keep all details.</h2>
+        <table>
+            <tr>
+                <td><img src="image/c.jpg" alt="Photo C" class="photo"></td>
+                <td><img src="image/d.jpg" alt="Photo D" class="photo"></td>
+            </tr>
+        </table>
+    </div>
+
+
+
+    <a href="photo_to_photo.html"><button>Back To Photo-to-Photo Page</button></a>
+    <footer>
+        © 2025 GSTC2066 Wednesday Group 5. All rights reserved.
+    </footer>
+</body>
+
+</html>

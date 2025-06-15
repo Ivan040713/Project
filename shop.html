@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Platform</title>
+    <link rel="stylesheet" href="shop.css">
+</head>
+
+<body>
+    <nav>
+        <a href="index.html">About</a>
+        <a href="shop.html">Shop</a>
+        <a href="contact_us.html">Contact Us</a>
+    </nav>
+    <div class="shop-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <h2>Filter by</h2>
+            <div class="filter-section">
+                <h3>Product Type</h3>
+                <label><input type="checkbox"> Photo Styles</label><br>
+                <label><input type="checkbox"> Video Conversion</label>
+            </div>
+            <div class="filter-section">
+                <h3>Price</h3>
+                <input type="range" min="25" max="100" value="50">
+                <p>HK$25 - HK$100</p>
+            </div>
+            <div class="filter-section">
+                <h3>Contrast Level</h3>
+                <label><input type="checkbox"> Bold</label><br>
+                <label><input type="checkbox"> Soft</label>
+            </div>
+            <div class="filter-section">
+                <h3>Effect Type</h3>
+                <label><input type="checkbox"> Cinematic</label><br>
+                <label><input type="checkbox"> Sketch</label><br>
+                <label><input type="checkbox"> Vintage</label><br>
+                <label><input type="checkbox"> Watercolor</label>
+            </div>
+            <div class="filter-section">
+                <h3>Intensity</h3>
+                <label><input type="checkbox"> High</label><br>
+                <label><input type="checkbox"> Low</label>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="products-section">
+                <div class="header">
+                    <h1>All Products</h1>
+                    <p>This is your category description. It’s a great place to tell customers what this category is
+                        about, connect with your audience and draw attention to your products.</p>
+                    <p>4 products</p>
+                    <div class="sort-container">
+                        <label for="sort">Sort by:</label>
+                        <select id="sort" name="sort">
+                            <option value="recommended">Recommended</option>
+                            <option value="newest">Newest</option>
+                            <option value="price-low-high">Price (low to high)</option>
+                            <option value="price-high-low">Price (high to low)</option>
+                            <option value="name-a-z">Name A-Z</option>
+                            <option value="name-z-a">Name Z-A</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <a href="product-detail.html?name=5 pages AI Travel Book&price=25.00&image=image/5.png">
+                            <img src="image/5.png" alt="5 Pages AI Travel Book">
+                        </a>
+                        <h2>5 pages AI Travel Book</h2>
+                        <p>HK$25.00</p>
+                        <button class="purchase-btn"
+                            onclick="addToCart('5 pages AI Travel Book', 25.00, 'image/5.png', 'Soft')">Purchase</button>
+                    </div>
+                    <div class="product-card">
+                        <a href="product-detail.html?name=10 pages AI Travel Book&price=50.00&image=image/10.png">
+                            <img src="image/10.png" alt="10 Pages AI Travel Book">
+                        </a>
+                        <h2>10 pages AI Travel Book</h2>
+                        <p>HK$50.00</p>
+                        <button class="purchase-btn"
+                            onclick="addToCart('10 pages AI Travel Book', 50.00, 'image/10.png', 'Soft')">Purchase</button>
+                    </div>
+                    <div class="product-card">
+                        <a href="product-detail.html?name=15 pages AI Travel Book&price=75.00&image=image/15.png">
+                            <img src="image/15.png" alt="15 Pages AI Travel Book">
+                        </a>
+                        <h2>15 pages AI Travel Book</h2>
+                        <p>HK$75.00</p>
+                        <button class="purchase-btn"
+                            onclick="addToCart('15 pages AI Travel Book', 75.00, 'image/15.png', 'Soft')">Purchase</button>
+                    </div>
+                    <div class="product-card">
+                        <a href="product-detail.html?name=20 pages AI Travel Book&price=100.00&image=image/20.png">
+                            <img src="image/20.png" alt="20 Pages AI Travel Book">
+                        </a>
+                        <h2>20 pages AI Travel Book</h2>
+                        <p>HK$100.00</p>
+                        <button class="purchase-btn"
+                            onclick="addToCart('20 pages AI Travel Book', 100.00, 'image/20.png', 'Soft')">Purchase</button>
+                    </div>
+                </div>
+            </div>
+            <div class="cart-link">
+                <button onclick="toggleChatbot()">Let's Chat!</button>
+            </div>
+            <div class="chatbot" id="chatbot">
+                <div class="chatbot-header">
+                    <h3>AI Travel Memory</h3>
+                    <p>Ask me anything!</p>
+                    <button onclick="toggleChatbot()">×</button>
+                </div>
+                <div class="chatbot-messages" id="chatbotMessages">
+                    <div class="message received">
+                        <p>Hello! How can I assist you today?</p>
+                    </div>
+                </div>
+                <div class="chatbot-input">
+                    <input type="text" id="chatbotInput" placeholder="Ask a question...">
+                    <button onclick="submitChatbotMessage()">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        © 2025 GSTC2066 Wednesday Group 5. All rights reserved.
+    </footer>
+    <script>
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        function addToCart(name, price, image, contrastLevel) {
+            const item = cart.find(i => i.name === name && i.contrastLevel === contrastLevel);
+            if (item) {
+                item.quantity += 1;
+            } else {
+                cart.push({ name, price, image, contrastLevel, quantity: 1 });
+            }
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert(`${name} (Contrast Level: ${contrastLevel}) has been added to your cart!`);
+            window.location.href = 'cart-dropdown.html';
+        }
+
+        function toggleChatbot() {
+            const chatbot = document.getElementById('chatbot');
+            chatbot.style.display = chatbot.style.display === 'block' ? 'none' : 'block';
+        }
+
+        function submitChatbotMessage() {
+            const chatbotInput = document.getElementById('chatbotInput');
+            const messages = document.getElementById('chatbotMessages');
+            const question = chatbotInput.value.trim();
+
+            if (question) {
+                // Display the user's question
+                const messageDiv = document.createElement('div');
+                messageDiv.className = 'message sent';
+                messageDiv.innerHTML = `<p>${question}</p>`;
+                messages.appendChild(messageDiv);
+
+                // Generate a response based on the question
+                const replyDiv = document.createElement('div');
+                replyDiv.className = 'message received';
+                const response = generateResponse(question.toLowerCase());
+                replyDiv.innerHTML = `<p>${response}</p>`;
+                messages.appendChild(replyDiv);
+
+                // Clear the input and scroll to the bottom
+                chatbotInput.value = '';
+                messages.scrollTop = messages.scrollHeight;
+            }
+        }
+
+        function generateResponse(question) {
+            // Keyword-based response system
+            if (question.includes('price') || question.includes('cost')) {
+                return "Our products range from HK$25 to HK$100. You can check the price of each AI Travel Book on the shop page!";
+            } else if (question.includes('contrast') || question.includes('level')) {
+                return "We offer two contrast levels: Bold and Soft. You can select your preferred contrast level when adding a product to your cart.";
+            } else if (question.includes('product') || question.includes('book')) {
+                return "We offer AI Travel Books in 5, 10, 15, and 20-page options. Each book is designed to help you preserve your travel memories beautifully!";
+            } else if (question.includes('cart') || question.includes('buy')) {
+                return "To add a product to your cart, click on the product image to go to the detail page, select your contrast level and quantity, then click 'Add to Cart'. You can view your cart by going to the cart page.";
+            } else if (question.includes('shipping') || question.includes('delivery')) {
+                return "Shipping is free for all orders! Delivery details will be confirmed during checkout.";
+            } else if (question.includes('effect') || question.includes('style')) {
+                return "We offer various effect types like Cinematic, Sketch, Vintage, and Watercolor. You can filter products by effect type on the shop page.";
+            } else if (question.includes('intensity')) {
+                return "You can filter products by intensity levels: High or Low. This option is available in the sidebar filters.";
+            } else if (question.includes('contact') || question.includes('help')) {
+                return "You can reach us via the 'Contact Us' page, or keep chatting with me here for quick answers!";
+            } else {
+                return "I'm not sure about that. Could you please rephrase your question or ask something else? I'm here to help!";
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Tokyo Memory Book</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #F9ECEC;
+            color: #2C3E50;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+            background-color: #ECF0F1;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            color: #2c3e50;
+        }
+
+        /* Table styling */
+        .gallery-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0 auto;
+        }
+
+        .gallery-table td {
+            padding: 15px;
+            background-color: #FFFFFF;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            vertical-align: top;
+            text-align: center;
+        }
+
+        .gallery-table td:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-table img {
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .gallery-table p {
+            margin-top: 10px;
+            font-size: 1em;
+            line-height: 1.5;
+            color: #555;
+            text-align: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #3498DB;
+            color: #FFFFFF;
+            border: none;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+
+        button:hover {
+            background-color: #2980B9;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        footer {
+            margin-top: 30px;
+            font-size: 14px;
+            color: #2C3E50;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .gallery-table img {
+                height: 150px;
+            }
+
+            .gallery-table p {
+                font-size: 0.9em;
+            }
+
+            button {
+                font-size: 14px;
+                padding: 8px 16px;
+            }
+
+            /* Stack table cells on small screens */
+            .gallery-table {
+                display: block;
+            }
+
+            .gallery-table tr {
+                display: block;
+                margin-bottom: 20px;
+            }
+
+            .gallery-table td {
+                display: block;
+                width: 100%;
+                margin-bottom: 10px;
+            }
+
+            .gallery-table td:last-child {
+                margin-bottom: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>My Tokyo Memory Book</h1>
+        <table class="gallery-table">
+            <!-- Row 1 -->
+            <tr>
+                <td>
+                    <img src="image/Akihabara.jpg" alt="Akihabara">
+                    <p>Akihabara: Exploring Electric Town, a hub for tech, anime, and pop culture enthusiasts.</p>
+                    <img
+                        src="https://quickchart.io/qr?text=https://maps.app.goo.gl/wxiY559L9wPhtT996&chs=150x150"></img>
+                </td>
+                <td>
+                    <img src="image/Ginza.jpg" alt="Ginza">
+                    <p>Ginza: Strolling through Tokyo’s upscale shopping district, known for luxury boutiques and fine
+                        dining.</p>
+                    <img
+                        src="https://quickchart.io/qr?text=https://maps.app.goo.gl/c69LSbyn8XvSzrmP9&chs=150x150"></img>
+                </td>
+            </tr>
+            <!-- Row 2 -->
+            <tr>
+                <td>
+                    <img src="image/Shibuya.jpg" alt="Shibuya Crossing at Night">
+                    <p>Shibuya: The famous Shibuya Crossing at night, buzzing with lights and energy.</p>
+                    <img
+                        src="https://quickchart.io/qr?text=https://maps.app.goo.gl/u7xs1qG1q9HRcMe47&chs=150x150"></img>
+                </td>
+                <td>
+                    <img src="image/TokyoTower.jpg" alt="Roppongi - Tokyo Tower">
+                    <p>Roppongi: A stunning view of Tokyo Tower, an iconic landmark, against the city skyline.</p>
+                    <img
+                        src="https://quickchart.io/qr?text=https://maps.app.goo.gl/tcmEtEz4qjVLkiG57&chs=150x150"></img>
+                </td>
+            </tr>
+            <!-- Row 3 -->
+            <tr>
+                <td>
+                    <img src="image/Shinjuku.jpg" alt="Shinjuku - Tokyo Metropolitan Government Building">
+                    <p>Shinjuku: The futuristic Tokyo Metropolitan Government Building, a symbol of modern Tokyo.</p>
+                    <img
+                        src="https://quickchart.io/qr?text=https://maps.app.goo.gl/THfEXNMFvpxNBdmT9&chs=150x150"></img>
+                </td>
+                <td>
+                    <img src="image/DotonboriBridge.jpg" alt="Asakusa - Dōtonbori Bridge">
+                    <p>Asakusa: A train crosses the Dōtonbori Bridge over the Sumida River, near the historic Sensō-ji
+                        Temple.</p>
+                    <img
+                        src="https://quickchart.io/qr?text=https://maps.app.goo.gl/GVbcTdmrF8X4iJSq9&chs=150x150"></img>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <a href="index.html"><button>Back to Home Page</button></a>
+    <footer>
+        © 2025 GSTC2066 Wednesday Group 5. All rights reserved.
+    </footer>
+</body>
+
+</html>
